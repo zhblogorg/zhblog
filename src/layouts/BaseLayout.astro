@@ -1,0 +1,30 @@
+---
+import Header from "../components/Header.astro";
+import "../styles/global.css";
+
+type Props = { 
+	title?: string; 
+	description?: string; 
+	emptyLayout?: boolean 
+}
+
+const { title = '', description = '', emptyLayout = false } = Astro.props;
+---
+
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/logo.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{ title && title+'-' } 中文博客契约</title>
+		<meta name="description" content="A beautiful and powerful syntax highlighter">
+	</head>
+	<body class="dark:text-neutral-200 dark:bg-neutral-900">
+
+        {!emptyLayout && <Header />}
+
+        <slot />
+
+	</body>
+</html>
