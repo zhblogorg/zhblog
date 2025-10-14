@@ -9,6 +9,10 @@
     --breakpoint-2xl: 42rem;
 }
 
+body {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Liberation Mono', sans-serif ;
+}
+
 article {
     @apply prose prose-neutral dark:prose-invert;
 }

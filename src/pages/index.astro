@@ -1,12 +1,14 @@
 ---
+import { getEntry, render } from "astro:content";
 import MarkdownLayout from "../layouts/MarkdownLayout.astro";
 
-
+const indexPage = await getEntry('page', 'index');
+if (!indexPage) {
+  throw new Error("Index page not found");
+}
+const { Content } = await render(indexPage);
 ---
 
-<MarkdownLayout>
-	<h2>中文独立博客共创契约</h2>
-	<p>一份数字时代的君子协定 —— 唯有以代码为契约，以共识为纽带，方能在混沌中捍卫内容创作的最后净土。</p>
-	<a>最新版本</a>
-	<a>历史版本</a>
+<MarkdownLayout title="首页">
+	<Content />
 </MarkdownLayout>

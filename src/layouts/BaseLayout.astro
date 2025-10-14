@@ -26,5 +26,16 @@ const { title = '', description = '', emptyLayout = false } = Astro.props;
 
         <slot />
 
+		<footer class="container mx-auto p-6">
+			<div class="space-y-2.5 p-4 text-sm text-neutral-400 rounded-xl bg-neutral-100 dark:bg-neutral-800">
+				<div>&copy; 2025 中文博客契约</div>
+				<div class="border-t border-neutral-200 dark:border-neutral-700/90"></div>
+				<div class="font-medium">
+					<a href="#">隐私策略</a>
+					<a href="#">服务条款</a>
+				</div>
+			</div>
+		</footer>
+
 	</body>
 </html>
