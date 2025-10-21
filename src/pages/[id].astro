@@ -1,0 +1,19 @@
+---
+import MarkdownLayout from "../layouts/MarkdownLayout.astro";
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+    const pages = await getCollection('page');
+    return pages.map(page => ({
+        params: { id: page.id },
+        props: { page },
+    }));
+}
+
+const { page } = Astro.props;
+const { Content } = await render(page);
+---
+
+<MarkdownLayout title={page.data.title} description={page.data.description}>
+    <Content />
+</MarkdownLayout>

@@ -1,0 +1,24 @@
+---
+import MarkdownLayout from "../../layouts/MarkdownLayout.astro";
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+    const deeds = await getCollection('deed');
+    return deeds.map(deed => ({
+        params: { id: deed.id },
+        props: { deed },
+    }));
+}
+
+const { deed } = Astro.props;
+const { Content } = await render(deed);
+---
+
+<MarkdownLayout title={deed.data.title} description={deed.data.description}>
+    <section class="text-center">
+        <h1>{deed.data.title}</h1>
+        <p><a href={Astro.url} class="cursor-pointer" target="_blank">{Astro.url}</a></p>
+    </section>
+    <hr />
+    <Content />
+</MarkdownLayout>

@@ -1,6 +1,8 @@
 ---
-import Header from "../components/Header.astro";
 import "../styles/global.css";
+import { SITE } from "../deed.config"
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 type Props = { 
 	title?: string; 
@@ -17,8 +19,8 @@ const { title = '', description = '', emptyLayout = false } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/logo.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{ title && title+'-' } 中文博客契约</title>
-		<meta name="description" content="A beautiful and powerful syntax highlighter">
+		<title>{title ? title+' - '+SITE.TITLE : SITE.TITLE}</title>
+		<meta name="description" content={description ? description : SITE.DESCRIPTION} />
 	</head>
 	<body class="dark:text-neutral-200 dark:bg-neutral-900">
 
@@ -26,16 +28,7 @@ const { title = '', description = '', emptyLayout = false } = Astro.props;
 
         <slot />
 
-		<footer class="container mx-auto p-6">
-			<div class="space-y-2.5 p-4 text-sm text-neutral-400 rounded-xl bg-neutral-100 dark:bg-neutral-800">
-				<div>&copy; 2025 中文博客契约</div>
-				<div class="border-t border-neutral-200 dark:border-neutral-700/90"></div>
-				<div class="font-medium">
-					<a href="#">隐私策略</a>
-					<a href="#">服务条款</a>
-				</div>
-			</div>
-		</footer>
+		<Footer />
 
 	</body>
 </html>

@@ -14,5 +14,10 @@ body {
 }
 
 article {
-    @apply prose prose-neutral dark:prose-invert;
+    @apply prose prose-neutral dark:prose-invert ;
+    @apply first:mt-0;
+}
+
+a:hover {
+    @apply text-blue-300 dark:text-blue-700;
 }

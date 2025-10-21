@@ -1,0 +1,15 @@
+---
+import MarkdownLayout from "../../layouts/MarkdownLayout.astro";
+
+import { getCollection } from 'astro:content';
+
+const deeds = (await getCollection('deed')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+<MarkdownLayout title="">
+  <p>版本列表：</p>
+    {deeds.map(deed => 
+        <p><a href={`/deeds/${deed.id}`}>{deed.data.title}</a></p>
+    )}
+</MarkdownLayout>
