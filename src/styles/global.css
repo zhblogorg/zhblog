@@ -14,7 +14,7 @@ body {
 }
 
 article {
-    @apply prose prose-neutral dark:prose-invert ;
+    @apply prose dark:prose-invert ;
     @apply first:mt-0;
 }
 
