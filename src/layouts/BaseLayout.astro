@@ -22,13 +22,13 @@ const { title = '', description = '', emptyLayout = false } = Astro.props;
 		<title>{title ? title+' - '+SITE.TITLE : SITE.TITLE}</title>
 		<meta name="description" content={description ? description : SITE.DESCRIPTION} />
 	</head>
-	<body class="dark:text-neutral-200 dark:bg-neutral-900">
+	<body class="bg-white dark:text-neutral-200 dark:bg-neutral-900">
 
         {!emptyLayout && <Header />}
 
         <slot />
 
-		<Footer />
+		{!emptyLayout && <Footer />}
 
 	</body>
 </html>

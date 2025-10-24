@@ -1,6 +1,6 @@
 ---
 import { getEntry, render } from "astro:content";
-import MarkdownLayout from "../layouts/MarkdownLayout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const indexPage = await getEntry('page', 'index');
 if (!indexPage) {
@@ -9,6 +9,18 @@ if (!indexPage) {
 const { Content } = await render(indexPage);
 ---
 
-<MarkdownLayout title="首页">
-	<Content />
-</MarkdownLayout>
+<BaseLayout title="首页">
+	<main>
+		<section class="bg-neutral-50 dark:bg-neutral-800">
+			<div class="container mx-auto px-6 py-24 text-center">
+				<h2 class="text-4xl font-extrabold mb-6">构建一个更统一、更友好的中文博客生态</h2>
+				<p class="text-neutral-700 leading-relaxed dark:text-neutral-500">一份数字时代的君子协定 —— 唯有以代码为契约，以共识为纽带，方能在混沌中捍卫内容创作的最后净土。</p>
+			</div>
+		</section>
+		<section class="container mx-auto p-6">
+			<article>
+				<Content />
+			</article>
+		</section>
+	</main>
+</BaseLayout>
