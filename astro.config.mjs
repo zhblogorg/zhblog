@@ -16,4 +16,6 @@ export default defineConfig({
     devToolbar: {
         enabled: false
     },
+
+    site: "https://zhblog.org",
 });

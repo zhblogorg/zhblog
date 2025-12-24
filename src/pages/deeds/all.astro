@@ -3,17 +3,13 @@ import MarkdownLayout from "../../layouts/MarkdownLayout.astro";
 
 import { getCollection } from 'astro:content';
 
-const deeds = (await getCollection('deed'))
-  .filter((d) => !d.data.draft)
-  .sort(
-    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-  );
+const deeds = (await getCollection('deed')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
 ---
 <MarkdownLayout title="版本列表">
   <p>版本列表：</p>
     {deeds.map(deed => 
         <p class="text-lg"><a href={`/deeds/${deed.id}`}>{deed.data.title}</a></p>
     )}
-
-  <p>查看<a href="/deeds/all">全部版本</a>（包括草稿）</p>
 </MarkdownLayout>

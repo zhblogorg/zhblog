@@ -12,13 +12,20 @@ export async function getStaticPaths() {
 
 const { deed } = Astro.props;
 const { Content } = await render(deed);
+const editUrl = `https://github.com/zhblogorg/zhblog/edit/main/${deed.filePath}`;
 ---
 
 <MarkdownLayout title={deed.data.title} description={deed.data.description}>
     <section class="text-center">
+        {deed.data.draft && <div class="inline-flex border border-dashed border-red-400 text-red-400 px-2.5 mb-4">草稿</div>}
         <h1>{deed.data.title}</h1>
-        <p><a href={Astro.url} class="cursor-pointer" target="_blank">{Astro.url}</a></p>
+        <p><a href={new URL(Astro.url.pathname, Astro.site)} class="cursor-pointer" target="_blank">{new URL(Astro.url.pathname, Astro.site)}</a></p>
     </section>
     <hr />
+    {deed.data.draft &&
+        <blockquote>
+            <p>如果你想修改或提议，请直接<a href={editUrl} target="_blank">在 Github 修改本页</a>或发邮件。</p>
+        </blockquote>
+    }
     <Content />
 </MarkdownLayout>

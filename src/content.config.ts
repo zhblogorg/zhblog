@@ -17,6 +17,7 @@ const deed = defineCollection({
         description: z.string().optional(),
         pubDate: z.coerce.date(),
         updatedDate: z.coerce.date().optional(),
+        draft: z.boolean().optional(),
     })
 });
 

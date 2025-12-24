@@ -2,10 +2,12 @@ export const SITE:{
     TITLE: string;
     DESCRIPTION: string;
     LOGO: string;
+    LOGO_W: string;
 } ={
     TITLE: "中文博客契约",
     DESCRIPTION: "以诚实、理性与开放的精神，重建中文博客的尊严。",
     LOGO: "/logo.svg",
+    LOGO_W: "/logo.w.svg",
 }
 
 export const NavLinks:{
