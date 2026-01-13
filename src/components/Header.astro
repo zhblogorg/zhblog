@@ -2,12 +2,12 @@
 import { SITE } from "../deed.config";
 ---
 
-<header class="sticky top-0 border-b border-neutral-200 bg-white dark:bg-neutral-900 dark:border-neutral-700">
-    <div class="container mx-auto px-6 py-1.5">
+<header class="sticky top-0 border-b border-neutral-200 bg-white dark:bg-black dark:border-neutral-800">
+    <div class="container mx-auto px-6 py-2.5">
         <a href="/" aria-label="首页" class="inline-flex items-center gap-2.5">
-            <img src={SITE.LOGO} class="size-3.5 block dark:hidden" alt="logo">
-            <img src={SITE.LOGO_W} class="size-3.5 hidden dark:block" alt="logo">
-            <h1>{SITE.TITLE}</h1>
+            <img src={SITE.LOGO} class="size-3 block dark:hidden" alt="logo">
+            <img src={SITE.LOGO_W} class="size-3 hidden dark:block" alt="logo">
+            <h1 class="font-medium">{SITE.TITLE}</h1>
         </a>
     </div>
 </header>

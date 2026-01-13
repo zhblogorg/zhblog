@@ -11,13 +11,16 @@ const { Content } = await render(indexPage);
 
 <BaseLayout title="首页">
 	<main>
-		<section class="bg-neutral-50 dark:bg-neutral-800">
-			<div class="container mx-auto px-6 py-24 text-center">
-				<h2 class="text-4xl font-extrabold mb-6">构建一个更统一、更友好的中文博客生态</h2>
-				<p class="text-neutral-700 leading-relaxed dark:text-neutral-500">一份数字时代的君子协定 —— 唯有以代码为契约，以共识为纽带，方能在混沌中捍卫内容创作的最后净土。</p>
-			</div>
-		</section>
 		<section class="container mx-auto p-6">
+			<div class="container mx-auto mt-16 mb-24">
+				<h2 class="text-3xl lg:text-4xl font-medium mb-6">构建一个更统一、更友好的中文博客生态</h2>
+				<p class="text-neutral-700 leading-relaxed dark:text-neutral-500 mb-8">一份数字时代的君子协定 —— 唯有以代码为契约，以共识为纽带，方能在混沌中捍卫内容创作的最后净土。</p>
+				<div class="flex items-center gap-2.5">
+					<a href="/deeds/deed-1.0" class="px-5 py-1.5 rounded-lg bg-neutral-800 text-neutral-50 dark:bg-neutral-200 dark:text-neutral-900">阅读正式版</a>
+					<a href="/deeds" class="px-5 py-1.5 rounded-lg bg-neutral-100 dark:bg-neutral-800">全部版本</a>
+				</div>
+			</div>
+
 			<article>
 				<Content />
 			</article>

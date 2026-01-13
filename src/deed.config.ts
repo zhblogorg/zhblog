@@ -15,8 +15,8 @@ export const NavLinks:{
     NAME: string;
 }[] = [
     {
-        HREF: "/deeds",
-        NAME: "版本库"
+        HREF: "/deeds/all",
+        NAME: "归档"
     },
     {
         HREF: "/about",

@@ -10,11 +10,13 @@
 }
 
 body {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Liberation Mono', sans-serif ;
+    font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,"Liberation Mono",Inter,Inter Fallback,sans-serif;
 }
 
 article {
     @apply prose prose-neutral max-w-none dark:prose-invert ;
+    @apply prose-headings:font-medium;
+    @apply *:first:mt-0
 }
 
 a:hover {

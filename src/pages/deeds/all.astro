@@ -7,8 +7,9 @@ const deeds = (await getCollection('deed')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
-<MarkdownLayout title="版本列表">
-  <p>版本列表：</p>
+<MarkdownLayout title="历史版本归档">
+    <p>历史版本归档：</p>
+    <p>全部版本列表包括草稿，你可以在最新草稿提交PR。</p>
     {deeds.map(deed => 
         <p class="text-lg"><a href={`/deeds/${deed.id}`}>{deed.data.title}</a></p>
     )}
