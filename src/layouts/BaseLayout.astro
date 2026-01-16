@@ -10,18 +10,22 @@ type Props = {
 	emptyLayout?: boolean 
 }
 
-const { title = '', description = '', emptyLayout = false } = Astro.props;
+const { title, description, emptyLayout = false } = Astro.props;
 ---
 
 <html lang="zh-CN">
 	<head>
-		<meta charset="utf-8" />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content= { description ?? SITE.DESCRIPTION } />
+		<meta name="keywords" content={ SITE.KEYWORDS } />
+		<meta name="generator" content={Astro.generator} />
+
+		<link rel="canonical" href={Astro.url} />
 		<link rel="icon" type="image/svg+xml" href="/logo.svg" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="generator" content={Astro.generator} />
+
 		<title>{title ? title+' - '+SITE.TITLE : SITE.TITLE}</title>
-		<meta name="description" content={description ? description : SITE.DESCRIPTION} />
 	</head>
 	<body class="bg-white dark:text-neutral-100 dark:bg-black">
 
