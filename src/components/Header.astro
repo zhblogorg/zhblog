@@ -4,10 +4,10 @@ import { SITE } from "../deed.config";
 
 <header class="sticky top-0 border-b border-neutral-200 bg-white dark:bg-black dark:border-neutral-800">
     <div class="container mx-auto px-6 py-2.5">
-        <a href="/" aria-label="首页" class="inline-flex items-center gap-2.5">
+        <a href="/" aria-label="首页" class="inline-flex items-center gap-2.5 font-medium">
             <img src={SITE.LOGO} class="size-3 block dark:hidden" alt="logo">
             <img src={SITE.LOGO_W} class="size-3 hidden dark:block" alt="logo">
-            <h1 class="font-medium">{SITE.TITLE}</h1>
+            {SITE.TITLE}
         </a>
     </div>
 </header>
