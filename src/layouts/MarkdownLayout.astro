@@ -8,7 +8,7 @@ type Props = {
     noIndex?: boolean;
 }
 
-const { title = '', description = '', emptyLayout = false, noIndex = false } = Astro.props;
+const { title, description, emptyLayout = false, noIndex = false } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description} emptyLayout={emptyLayout} noIndex={noIndex}>
