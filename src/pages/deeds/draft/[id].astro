@@ -1,5 +1,5 @@
 ---
-import MarkdownLayout from "../../layouts/MarkdownLayout.astro";
+import MarkdownLayout from "../../../layouts/MarkdownLayout.astro";
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -7,7 +7,7 @@ export async function getStaticPaths() {
     return deeds.map(deed => ({
         params: { id: deed.id },
         props: { deed },
-    })).filter(({ props }) => !props.deed.data.draft);
+    })).filter(({ props }) => props.deed.data.draft);
 }
 
 const { deed } = Astro.props;

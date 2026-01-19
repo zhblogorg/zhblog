@@ -23,13 +23,7 @@ export default defineConfig({
 
     integrations: [
             sitemap({
-                filter: (page) => {
-
-                    if (page.includes('/draft'))  return false;
-                    if (page.includes('/*-draft'))  return false;
-
-                    return true;
-                }
+                filter: (page) => !page.includes('/draft/'),
             }),
     ],
 
