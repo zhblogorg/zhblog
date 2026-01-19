@@ -1,0 +1,18 @@
+---
+import MarkdownLayout from "../../layouts/MarkdownLayout.astro";
+
+import { getCollection } from 'astro:content';
+
+const deeds = (await getCollection('deed'))
+	.filter(deed => deed.data.draft === true)
+	.sort(
+		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+	);
+---
+<MarkdownLayout title="草案归档" noIndex>
+	<h1>草案归档</h1>
+	<p>未发布草稿或已发布草案，你可以在最新草稿提交PR。</p>
+	{deeds.map(deed => 
+		<p class="text-lg"><a href={`/deeds/${deed.id}`}>{deed.data.title}</a></p>
+	)}
+</MarkdownLayout>

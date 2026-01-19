@@ -1,7 +1,6 @@
 ---
 slug: "deed-1.0-draft"
-title: "中文独立博客创作契约 1.0（草案）"
-description: "《中文独立博客创作契约 1.0（草案）》内容"
+title: "契约 1.0 草案（已发布）"
 pubDate: 2025-10-21
 draft: true
 ---

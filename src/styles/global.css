@@ -15,10 +15,10 @@ body {
 
 article {
     @apply prose prose-neutral max-w-none dark:prose-invert ;
-    @apply prose-headings:font-medium;
+    @apply prose-headings:font-semibold;
     @apply *:first:mt-0
 }
 
 a:hover {
-    @apply text-blue-400 dark:text-blue-700;
+    @apply text-blue-500 dark:text-blue-700;
 }
