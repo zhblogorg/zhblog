@@ -13,6 +13,6 @@ const deeds = (await getCollection('deed'))
 	<h1>草案归档</h1>
 	<p>未发布草稿或已发布草案，你可以在最新草稿提交PR。</p>
 	{deeds.map(deed => 
-		<p class="text-lg"><a href={`/deeds/${deed.id}`}>{deed.data.title}</a></p>
+		<p class="text-lg"><a href={`/deeds/draft/${deed.id}`}>{deed.data.title}</a></p>
 	)}
 </MarkdownLayout>
