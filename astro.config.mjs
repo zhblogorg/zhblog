@@ -6,19 +6,32 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  vite: {
-      plugins: [tailwindcss()],
-  },
+    vite: {
+        plugins: [tailwindcss()],
+    },
 
-  server: {
-      host: true,
-      port: 4321,
-  },
+    server: {
+        host: true,
+        port: 4321,
+    },
 
-  devToolbar: {
-      enabled: false
-  },
+    devToolbar: {
+        enabled: false
+    },
 
-  site: "https://zhblog.org",
-  integrations: [sitemap()],
+    site: "https://zhblog.org",
+
+    integrations: [
+            sitemap({
+                filter: (page) => {
+
+                    if (page.includes('/draft'))  return false;
+                    if (page.includes('/*-draft'))  return false;
+
+                    return true;
+                }
+            }),
+    ],
+
+
 });
