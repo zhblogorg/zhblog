@@ -34,7 +34,7 @@ const { title, description, emptyLayout = false, noIndex = false } = Astro.props
 
 		<title>{title || SITE.TITLE}</title>
 	</head>
-	<body class="bg-white dark:text-neutral-100 dark:bg-black">
+	<body class="bg-white dark:text-neutral-100 dark:bg-black break-words break-all">
 
         {!emptyLayout && <Header />}
 
