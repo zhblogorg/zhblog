@@ -1,8 +1,8 @@
 ---
-slug: "deed-1.0"
-title: "中文独立博客创作契约 1.0"
+slug: "deed-2.0"
+title: "中文独立博客创作契约 1.1"
 description: "《中文独立博客创作契约 1.0》正式版内容。"
-pubDate: 2025-12-24
+pubDate: 2026-01-20
 draft: false
 ---
 

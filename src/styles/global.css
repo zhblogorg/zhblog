@@ -1,14 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-@theme {
-    --breakpoint-sm: 32rem;
-    --breakpoint-md: 38rem;
-    --breakpoint-lg: 44rem;
-    --breakpoint-xl: 44rem;
-    --breakpoint-2xl: 44rem;
-}
-
 body {
     font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,"Liberation Mono",Inter,Inter Fallback,sans-serif;
 }
@@ -16,7 +8,8 @@ body {
 article {
     @apply prose prose-neutral max-w-none dark:prose-invert ;
     @apply prose-headings:font-semibold;
-    @apply *:first:mt-0
+    @apply *:first:mt-0;
+    @apply prose-li:marker:font-sans;
 }
 
 a:hover {
