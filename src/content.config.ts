@@ -1,4 +1,5 @@
 import { glob } from "astro/loaders";
+import mod from "astro/zod";
 import { defineCollection, z } from "astro:content";
 
 const page = defineCollection({
@@ -7,6 +8,8 @@ const page = defineCollection({
         title: z.string(),
         description: z.string().optional(),
         pubDate: z.coerce.date().optional(),
+        modDate: z.coerce.date().optional(),
+        noIndex: z.boolean().optional(),
     })
 });
 
@@ -16,7 +19,7 @@ const deed = defineCollection({
         title: z.string(),
         description: z.string().optional(),
         pubDate: z.coerce.date(),
-        updatedDate: z.coerce.date().optional(),
+        modDate: z.coerce.date().optional(),
         draft: z.boolean().optional(),
     })
 });

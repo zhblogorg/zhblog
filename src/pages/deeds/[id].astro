@@ -12,7 +12,6 @@ export async function getStaticPaths() {
 
 const { deed } = Astro.props;
 const { Content } = await render(deed);
-const editUrl = `https://github.com/zhblogorg/zhblog/edit/main/${deed.filePath}`;
 ---
 
 <MarkdownLayout 

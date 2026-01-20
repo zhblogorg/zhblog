@@ -1,6 +1,8 @@
 ---
-title: "服务条款"
+title: "服务条款（Terms of Service）"
 ---
+
+# 服务条款（Terms of Service）
 
 最后更新日期：2025年10月21日
 

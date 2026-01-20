@@ -15,15 +15,15 @@ export default defineConfig({
         port: 4321,
     },
 
-    devToolbar: {
-        enabled: false
-    },
+    // devToolbar: {
+    //     enabled: false
+    // },
 
     site: "https://zhblog.org",
 
     integrations: [
             sitemap({
-                filter: (page) => !page.includes('/draft/'),
+                filter: (page) => !page.includes('/draft'),
             }),
     ],
 

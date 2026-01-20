@@ -1,10 +1,20 @@
 ---
-slug: "deed-2.0"
-title: "中文独立博客创作契约 1.1"
-description: "《中文独立博客创作契约 1.0》正式版内容。"
-pubDate: 2026-01-20
-draft: false
+layout: "../layouts/MarkdownLayout.astro"
+title: "中文博客契约草案"
+noIndex: true
+
+pubDate: 2025-12-24
+modDate: 2026-01-20
 ---
+
+# 中文博客契约 1.0（草稿）
+
+<https://github.com/zhblogorg/zhblog/edit/main/src/data/page/draft.md>
+
+任何人都可以在 Github 修改以下草稿内容。
+
+-----
+
 
 ## 创作与诚信 
 

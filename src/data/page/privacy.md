@@ -1,6 +1,8 @@
 ---
-title: "隐私策略"
+title: "隐私策略（Privacy Policy）"
 ---
+
+# 隐私策略（Privacy Policy）
 
 最后更新日期：2025年10月21日
 

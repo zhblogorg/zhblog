@@ -2,8 +2,8 @@
 import { NavLinks } from "../deed.config";
 ---
 
-<footer class="bg-neutral-50 dark:bg-neutral-900">
-    <div class="container mx-auto p-6 max-w-2xl">
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+    <div class="container mx-auto px-6 py-12 max-w-2xl">
         <div class="space-y-4 text-sm text-center text-neutral-500 dark:text-neutral-400">
             <nav class="flex items-center justify-center gap-2.5 *:underline *:font-medium">
                 {NavLinks.map( item => <a href={item.HREF}>{item.NAME}</a>)}

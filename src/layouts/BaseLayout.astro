@@ -42,7 +42,7 @@ const { title, description, emptyLayout = false, noIndex = false } = Astro.props
 
 		{!emptyLayout && <Footer />}
 
-		<script defer src="https://stats.betterapi.net/stats.js" data-website-id="45070bcb-d396-447c-92b3-81cf2a8c90b9"></script>
+		{!import.meta.env.DEV && <script defer src="https://stats.betterapi.net/stats.js" data-website-id="45070bcb-d396-447c-92b3-81cf2a8c90b9"></script>}
 
 	</body>
 </html>
