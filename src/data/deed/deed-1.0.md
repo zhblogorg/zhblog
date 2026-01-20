@@ -1,5 +1,5 @@
 ---
-slug: "deed-1.0"
+slug: "chinese-blog-contract-1.0"
 title: "中文独立博客创作契约 1.0"
 description: "《中文独立博客创作契约 1.0》正式版内容。"
 pubDate: 2025-12-24
