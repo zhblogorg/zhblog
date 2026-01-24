@@ -3,6 +3,9 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from "@tailwindcss/vite";
 
 import sitemap from "@astrojs/sitemap";
+import { CURRENT_VERSION } from './src/config';
+
+const versionURL = `/covenant/${CURRENT_VERSION}`
 
 // https://astro.build/config
 export default defineConfig({
@@ -27,5 +30,11 @@ export default defineConfig({
             }),
     ],
 
+    redirects: {
+        "/covenant/current": {
+            status: 302,
+            destination: versionURL
+        }
+    }
 
 });

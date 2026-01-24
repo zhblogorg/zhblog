@@ -5,14 +5,14 @@ type Props = {
 	title?: string; 
 	description?: string; 
 	emptyLayout?: boolean;
-    noIndex?: boolean;
+	noIndex?: boolean;
 }
 
 const { title, description, emptyLayout = false, noIndex = false } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description} emptyLayout={emptyLayout} noIndex={noIndex}>
-    <main class="container mx-auto px-6 py-12 space-y-8 max-w-3xl">
+    <main class="container mx-auto px-6 py-12 space-y-8 max-w-2xl">
         <article>
             <slot />
         </article>

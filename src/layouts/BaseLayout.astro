@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import { SITE } from "../deed.config"
+import { SITE } from "../config"
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
@@ -12,6 +12,16 @@ type Props = {
 }
 
 const { title, description, emptyLayout = false, noIndex = false } = Astro.props;
+const { pathname } = Astro.url;
+const isHome = pathname === "/" || pathname === "/index.html";
+
+const schema = {
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	"name": SITE.TITLE,
+	"alternateName": ["中文独立博客创作契约", "中文独立博客契约", "中文博客创作契约", "IBC"],
+	"url": Astro.site
+};
 ---
 
 <html lang="zh-CN">
@@ -33,6 +43,7 @@ const { title, description, emptyLayout = false, noIndex = false } = Astro.props
 		<link rel="sitemap" href="/sitemap-index.xml" />
 
 		<title>{title || SITE.TITLE}</title>
+		{isHome && ( <script type="application/ld+json" set:html={JSON.stringify(schema)} /> )}
 	</head>
 	<body class="bg-white dark:text-neutral-100 dark:bg-black break-words break-all">
 

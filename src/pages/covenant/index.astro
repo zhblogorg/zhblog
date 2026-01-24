@@ -1,0 +1,66 @@
+---
+import { CURRENT_VERSION } from "../../config";
+import MarkdownLayout from "../../layouts/MarkdownLayout.astro";
+import { getCollection } from 'astro:content';
+
+const covenants = (await getCollection("covenant"))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+<MarkdownLayout
+title="说明与版本归档"
+description="本页面用于说明契约的性质、适用方式，并集中展示所有历史版本。"
+>
+	<h1>说明与版本归档</h1>
+	<p>本页面用于说明契约的性质、适用方式，并集中展示所有历史版本。</p>
+	<ul>
+		<li>本契约为单方面、自愿、自觉遵守的创作规范</li>
+		<li>不构成合同、协议或具有强制力的法律文件</li>
+		<li>契约文本以公开发布版本为准</li>
+	</ul>
+	<p>阅读当前版本正文：<a href={`/covenant/${CURRENT_VERSION}`} class="cursor-pointer">{`《中文独立博客创作契约 ${CURRENT_VERSION}》`}</a></p>
+
+	<h2>版本列表</h2>
+	<table class="table-auto">
+		<thead>
+			<th>版本</th>
+			<th>发布日期</th>
+			<th>状态</th>
+		</thead>
+		<tbody>
+			{covenants.map(covenant =>
+				<tr>
+					<td><a href={`/covenant/${covenant.id}`}>{covenant.id}</a></td>
+					<td>{covenant.data.pubDate.toLocaleDateString('en-CA')}</td>
+					<td>
+						{
+							covenant.data.deprecated ? (
+								<span class="line-through opacity-50">弃用</span>
+							) : covenant.data.draft ? (
+								<span>草案（征求稿）</span>
+							) : covenant.id === CURRENT_VERSION ? (
+								<span class="flex items-center gap-1 before:inline-block before:size-2 before:rounded-full before:bg-green-300">当前</span>
+							) : (
+								<span>已归档</span>
+							)
+						}
+					</td>
+				</tr>
+			)}
+		</tbody>
+	</table>
+	
+	<h2>版本规则说明</h2>
+	<ul>
+		<li>所有版本永久可访问、可引用</li>
+		<li>新版本为增量修订，不追溯修改旧版本</li>
+		<li>历史版本永久归档可能不再推荐，但语义仍然有效</li>
+	</ul>
+
+	<h2>变更与修订原则</h2>
+	<ul>
+		<li>本契约允许修订</li>
+		<li>修订以新增版本形式发布</li>
+		<li>修订日志随版本一并公布</li>
+		<li>不删除、不覆盖、不回滚已发布版本</li>
+	</ul>
+</MarkdownLayout>
