@@ -8,7 +8,7 @@ layout: "../layouts/MarkdownLayout.astro"
 
 本契约不具有强制力，任何人均可自愿声明遵守、引用或部分采纳。
 
-[查看当前规范](/covenant/current) | [版本归档](/covenant) | [修订记录](/changelog)
+[查看当前规范](/covenant/0.1-beta) | [版本归档](/covenant) | [修订记录](/changelog)
 
 ---
 

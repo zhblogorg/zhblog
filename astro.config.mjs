@@ -26,15 +26,15 @@ export default defineConfig({
 
     integrations: [
             sitemap({
-                filter: (page) => !page.includes('/draft'),
+                // filter: (page) => !page.includes('/draft'),
             }),
     ],
 
-    redirects: {
-        "/covenant/current": {
-            status: 302,
-            destination: versionURL
-        }
-    }
+    // redirects: {
+    //     "/covenant/current": {
+    //         status: 302,
+    //         destination: versionURL
+    //     }
+    // }
 
 });
