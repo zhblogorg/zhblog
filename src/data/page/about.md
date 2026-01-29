@@ -24,3 +24,9 @@ description: "关于《中文独立博客创作契约》，我们的简介、使
 向我们提议、举报投诉。
 
 电子邮件：<hi@zhblog.org>
+
+## 更多
+
+- [契约修订记录](/covenant/changelog)
+
+- [网站更新记录](/changelog)

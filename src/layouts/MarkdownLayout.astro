@@ -1,17 +1,8 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-
-type Props = { 
-	title?: string; 
-	description?: string; 
-	emptyLayout?: boolean;
-	noIndex?: boolean;
-}
-
-const { title, description, emptyLayout = false, noIndex = false } = Astro.props;
+const { ...rest } = Astro.props;
 ---
-
-<BaseLayout title={title} description={description} emptyLayout={emptyLayout} noIndex={noIndex}>
+<BaseLayout {...rest}>
     <main class="container mx-auto px-6 py-12 space-y-8 max-w-2xl">
         <article>
             <slot />

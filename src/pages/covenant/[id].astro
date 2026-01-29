@@ -21,6 +21,10 @@ const editUrl = `${SITE.GITHUB_URL}/edit/main/src/data${Astro.url.pathname}`
     title = {covenant.data.title}
     description = `名称：${covenant.data.title}；版本：${covenant.id}；发布日期：${covenant.data.pubDate.toDateString()}`
     noIndex = {covenant.data.draft ?? false}
+    pageName = "covenant"
+    pubDate = {covenant.data.pubDate}
+    modDate = {covenant.data.modDate}
+    version = {covenant.id}
 >
     <section class="text-center pt-8">
         <h1>{covenant.data.title}</h1>
@@ -36,8 +40,8 @@ const editUrl = `${SITE.GITHUB_URL}/edit/main/src/data${Astro.url.pathname}`
             <p class="text-orange-400">这是征求稿预览版，请前往 <a href={editUrl}>GitHub</a> 编辑或发送邮件反馈。</p>
         ) : null
     }
-    <p>发布日期：{covenant.data.pubDate.toLocaleDateString('en-CA')}</p>
-    {covenant.data.modDate && <p>修订日期：{covenant.data.modDate.toLocaleDateString('en-CA')}</p>}
+    <p>发布日期：{covenant.data.pubDate.toLocaleDateString("zh-CN",{year:"numeric", month:"long",day:"2-digit"})}</p>
+    {covenant.data.modDate && <p>修订日期：{covenant.data.modDate.toLocaleDateString("zh-CN",{year:"numeric", month:"long",day:"2-digit"})}</p>}
     
     <hr>
     

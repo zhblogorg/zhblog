@@ -4,24 +4,56 @@ import { SITE } from "../config"
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
-type Props = { 
+const {
+	title,
+	description,
+	emptyLayout,
+	noIndex,
+	pageName,
+	pubDate,
+	modDate,
+	version
+} : { 
 	title?: string; 
 	description?: string; 
 	emptyLayout?: boolean;
 	noIndex?: boolean;
-}
+	pageName?: string;
+	pubDate?: Date;
+	modDate?: Date;
+	version?: string;
+} = Astro.props;
 
-const { title, description, emptyLayout = false, noIndex = false } = Astro.props;
 const { pathname } = Astro.url;
 const isHome = pathname === "/" || pathname === "/index.html";
 
-const schema = {
+const schema = isHome ? {
 	"@context": "https://schema.org",
 	"@type": "WebSite",
 	"name": SITE.TITLE,
 	"alternateName": ["中文独立博客创作契约", "中文独立博客契约", "中文博客创作契约", "IBC"],
 	"url": Astro.site
-};
+} : pageName === "covenant" ? {
+	"@context": "https://schema.org",
+	"@type": "CreativeWork",
+	"name": title,
+	"url": Astro.url,
+	"inLanguage": "zh-CN",
+	"description": description,
+	"datePublished": pubDate,
+	...(modDate && { "dateModified": modDate }),
+	"version": version,
+	"creator": {
+		"@type": "Organization",
+		"name": SITE.TITLE,
+		"url": Astro.site
+	},
+	"isPartOf": {
+		"@type": "WebSite",
+		"name": SITE.TITLE,
+		"url": Astro.site
+	},
+} : null;
 ---
 
 <html lang="zh-CN">
@@ -29,7 +61,6 @@ const schema = {
 		{noIndex && 
 			<>
 				<meta name="robots" content="noindex,nofollow" />
-				<meta name="googlebot" content="noindex,nofollow" />
 			</>
 		}
 		<meta charset="UTF-8" />
@@ -43,7 +74,7 @@ const schema = {
 		<link rel="sitemap" href="/sitemap-index.xml" />
 
 		<title>{title || SITE.TITLE}</title>
-		{isHome && ( <script type="application/ld+json" set:html={JSON.stringify(schema)} /> )}
+		{(isHome || pageName == "covenant") && ( <script type="application/ld+json" set:html={JSON.stringify(schema)} /> )}
 	</head>
 	<body class="bg-white dark:text-neutral-100 dark:bg-black break-words break-all">
 
