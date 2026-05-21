@@ -1,5 +1,6 @@
 import { glob } from "astro/loaders";
-import { defineCollection, z } from "astro:content";
+import { z } from "astro/zod";
+import { defineCollection} from "astro:content";
 
 const page = defineCollection({
     loader: glob({ pattern: '**/[^_]*.md', base: "./src/data/page" }),
@@ -12,8 +13,8 @@ const page = defineCollection({
     })
 });
 
-const covenant = defineCollection({
-    loader: glob({ pattern: "**/*.md", base: "./src/data/covenant" }),
+const guidelines = defineCollection({
+    loader: glob({ pattern: "**/*.md", base: "./src/data/guidelines" }),
     schema: z.object({
         title: z.string(),
         description: z.string().optional(),
@@ -24,4 +25,4 @@ const covenant = defineCollection({
     })
 });
 
-export const collections = { page, covenant };
+export const collections = { page, guidelines };

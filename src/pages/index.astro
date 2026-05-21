@@ -1,0 +1,92 @@
+---
+import { SITE, CURRENT_VERSION } from "../config";
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout>
+    <main class="px-6">
+        <section class="max-w-4xl mx-auto pt-16 md:pt-24 pb-12 ">
+			<div class="flex items-center text-[10px] text-neutral-400 dark:text-neutral-500 tracking-widest uppercase font-mono mb-2.5">Public Guidelines</div>
+			<h1 class="text-3xl md:text-5xl font-semibold tracking-tight leading-tight mb-4">{SITE.TITLE}</h1>
+			<p class="text-lg md:text-xl font-light text-neutral-500 dark:text-neutral-400 leading-relaxed mb-8 max-w-2xl">一份面向中文独立博客创作者的公共倡议与参考规范指南，它旨在通过明确博客创作与发布的基本原则。</p>
+			<div class="flex flex-wrap gap-x-8 gap-y-2.5 pt-6 border-t border-neutral-200 dark:border-neutral-800 text-xs font-mono tracking-widest text-neutral-400 dark:text-neutral-500">
+				<div>当前版本<span class="text-neutral-600 dark:text-neutral-300 ml-2 font-semibold">{CURRENT_VERSION}</span></div>
+				<div>采用人数<span class="text-neutral-600 dark:text-neutral-300 ml-2 font-semibold">1</span></div>
+				<div>最后更新<span class="text-neutral-600 dark:text-neutral-300 ml-2 font-semibold">2026-05-20</span></div>
+			</div>
+		</section>
+		<section class="max-w-4xl mx-auto py-12">
+			<div class="pb-4 mb-6 border-b border-neutral-200 dark:border-neutral-800">
+				<div class="flex items-center justify-between text-xs text-neutral-400 dark:text-neutral-500 font-mono tracking-widest uppercase">
+					<h2 class="">核心条款 / The Pillars</h2>
+					<a href={`/guidelines/${CURRENT_VERSION}`} class="flex items-center gap-1">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text-icon lucide-file-text size-3 md:size-3.5"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+						<span>查看正文</span>
+					</a>
+				</div>
+			</div>
+
+			<div class="space-y-4">
+				<div class="flex gap-x-4 md:gap-x-6 py-2.5">
+					<span class="text-neutral-400 dark:text-neutral-500 text-sm font-mono mt-1">01</span>
+					<div>
+						<div class="flex items-baseline space-x-2">
+							<h3 class="text-lg font-semibold text-neutral-600 dark:text-neutral-300 mb-2">独立创作</h3>
+							<span class="text-xs text-neutral-400 dark:text-neutral-500 font-mono">/ Independent Creation</span>
+						</div>
+						<p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">博客内容必须由创作者独立创作，禁止抄袭、剽窃或未经授权使用他人作品。创作者应尊重知识产权，确保所有发布的内容都是原创的或已获得合法授权的。</p>
+					</div>
+				</div>
+				<div class="flex gap-x-4 md:gap-x-6 py-2.5">
+					<span class="text-neutral-400 dark:text-neutral-500 text-sm font-mono mt-1">01</span>
+					<div>
+						<div class="flex items-baseline space-x-2">
+							<h3 class="text-lg font-semibold text-neutral-600 dark:text-neutral-300 mb-2">独立创作</h3>
+							<span class="text-xs text-neutral-400 dark:text-neutral-500 font-mono">/ Independent Creation</span>
+						</div>
+						<p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">博客内容必须由创作者独立创作，禁止抄袭、剽窃或未经授权使用他人作品。创作者应尊重知识产权，确保所有发布的内容都是原创的或已获得合法授权的。</p>
+					</div>
+				</div>
+				<div class="flex gap-x-4 md:gap-x-6 py-2.5">
+					<span class="text-neutral-400 dark:text-neutral-500 text-sm font-mono mt-1">01</span>
+					<div>
+						<div class="flex items-baseline space-x-2">
+							<h3 class="text-lg font-semibold text-neutral-600 dark:text-neutral-300 mb-2">独立创作</h3>
+							<span class="text-xs text-neutral-400 dark:text-neutral-500 font-mono">/ Independent Creation</span>
+						</div>
+						<p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">博客内容必须由创作者独立创作，禁止抄袭、剽窃或未经授权使用他人作品。创作者应尊重知识产权，确保所有发布的内容都是原创的或已获得合法授权的。</p>
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+
+		<section class="max-w-4xl mx-auto py-12">
+			<div class="pb-4 mb-6 border-b border-neutral-200 dark:border-neutral-800">
+				<div class="flex items-center justify-between text-xs text-neutral-400 dark:text-neutral-500 font-mono tracking-widest uppercase">
+					<h2 class="">谁在守护 / Adopters</h2>
+					<a href="#" class="flex items-center gap-1">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-icon lucide-users size-3 md:size-3.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg>
+						<span>查看全名录</span>
+					</a>
+				</div>
+			</div>
+
+			<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 py-2">
+				<div class="flex gap-x-3">
+					<img 
+					src="https://wo.jb18.cm/avatar.webp"
+					alt="Adopter Avatar"
+					class="size-6 rounded-full border border-neutral-200 dark:border-neutral-800">
+					<div>
+						<div class="text-sm font-medium text-neutral-600 dark:text-neutral-300 line-clamp-1 leading-normal">独立博客</div>
+						<a href="https://wo.jb18.cm" class="text-xs text-neutral-400 dark:text-neutral-500 font-mono block line-clamp-1" target="_blank" rel="noopener noreferrer">wo.jb18.cm</a>
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+
+    </main>
+</BaseLayout>

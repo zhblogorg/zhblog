@@ -3,9 +3,11 @@ import BaseLayout from "./BaseLayout.astro";
 const { ...rest } = Astro.props;
 ---
 <BaseLayout {...rest}>
-    <main class="container mx-auto px-6 py-12 space-y-8 max-w-2xl">
-        <article>
-            <slot />
-        </article>
+    <main class="px-6 py-12">
+        <div class="max-w-4xl mx-auto">
+            <article>
+                <slot />
+            </article>
+        </div>
     </main>
 </BaseLayout>

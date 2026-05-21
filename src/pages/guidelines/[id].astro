@@ -1,0 +1,44 @@
+---
+import { SITE } from "../../config";
+import MarkdownLayout from "../../layouts/MarkdownLayout.astro";
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+    const guideliness = await getCollection('guidelines');
+    return guideliness.map(guidelines => ({
+        params: { id: guidelines.id },
+        props: { guidelines },
+    }));
+}
+
+const { guidelines } = Astro.props;
+const { Content } = await render(guidelines);
+
+const editUrl = `${SITE.GITHUB_URL}/edit/main/src/data${Astro.url.pathname}.md`
+---
+
+<MarkdownLayout
+    title = {guidelines.data.title}
+    description = `名称：${guidelines.data.title}；版本：${guidelines.id}；发布日期：${guidelines.data.pubDate.toDateString()}`
+    noIndex = {guidelines.data.draft ?? false}
+    pageName = "guidelines"
+    pubDate = {guidelines.data.pubDate}
+    modDate = {guidelines.data.modDate}
+    version = {guidelines.id}
+>
+    <div class="border-b border-neutral-200">
+        <h1>{guidelines.data.title}</h1>
+        <p class="text-xs font-mono">生效日期：{guidelines.data.pubDate.toLocaleDateString('en-CA')} · 归档版本：{guidelines.id}</p>
+    </div>
+    {
+        guidelines.data.deprecated ? (
+            <p class="text-red-400">已弃用，此版本不再维护</p>
+        ) : guidelines.data.draft ? (
+            <p class="text-orange-400">预览版，请前往 <a href={editUrl}>GitHub</a> 编辑或发送邮件反馈。</p>
+        ) : null
+    }
+    
+    <!-- <hr> -->
+    
+    <Content />
+</MarkdownLayout>

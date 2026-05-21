@@ -3,7 +3,7 @@ import { CURRENT_VERSION } from "../../config";
 import MarkdownLayout from "../../layouts/MarkdownLayout.astro";
 import { getCollection } from 'astro:content';
 
-const covenants = (await getCollection("covenant"))
+const guideliness = (await getCollection("guidelines"))
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 <MarkdownLayout
@@ -17,7 +17,7 @@ description="本页面用于说明契约的性质、适用方式，并集中展�
 		<li>不构成合同、协议或具有强制力的法律文件</li>
 		<li>契约文本以公开发布版本为准</li>
 	</ul>
-	<p>阅读当前版本正文：<a href={`/covenant/${CURRENT_VERSION}`} class="cursor-pointer">{`《中文独立博客创作契约 ${CURRENT_VERSION}》`}</a></p>
+	<p>阅读当前版本正文：<a href={`/guidelines/${CURRENT_VERSION}`} class="cursor-pointer">{`《中文独立博客创作契约 ${CURRENT_VERSION}》`}</a></p>
 
 	<h2>版本列表</h2>
 	<table class="table-auto">
@@ -27,17 +27,17 @@ description="本页面用于说明契约的性质、适用方式，并集中展�
 			<th>状态</th>
 		</thead>
 		<tbody>
-			{covenants.map(covenant =>
+			{guideliness.map(guidelines =>
 				<tr>
-					<td><a href={`/covenant/${covenant.id}`}>{covenant.id}</a></td>
-					<td>{covenant.data.pubDate.toLocaleDateString('en-CA')}</td>
+					<td><a href={`/guidelines/${guidelines.id}`}>{guidelines.id}</a></td>
+					<td>{guidelines.data.pubDate.toLocaleDateString('en-CA')}</td>
 					<td>
 						{
-							covenant.data.deprecated ? (
+							guidelines.data.deprecated ? (
 								<span class="line-through opacity-50">弃用</span>
-							) : covenant.data.draft ? (
+							) : guidelines.data.draft ? (
 								<span>草案（征求稿）</span>
-							) : covenant.id === CURRENT_VERSION ? (
+							) : guidelines.id === CURRENT_VERSION ? (
 								<span class="flex items-center gap-1 before:inline-block before:size-2 before:rounded-full before:bg-green-300">当前</span>
 							) : (
 								<span>已归档</span>

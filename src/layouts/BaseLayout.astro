@@ -33,7 +33,7 @@ const schema = isHome ? {
 	"name": SITE.TITLE,
 	"alternateName": ["中文独立博客创作契约", "中文独立博客契约", "中文博客创作契约", "IBC"],
 	"url": Astro.site
-} : pageName === "covenant" ? {
+} : pageName === "guidelines" ? {
 	"@context": "https://schema.org",
 	"@type": "CreativeWork",
 	"name": title,
@@ -74,9 +74,9 @@ const schema = isHome ? {
 		<link rel="sitemap" href="/sitemap-index.xml" />
 
 		<title>{title || SITE.TITLE}</title>
-		{(isHome || pageName == "covenant") && ( <script type="application/ld+json" set:html={JSON.stringify(schema)} /> )}
+		{(isHome || pageName == "guidelines") && ( <script type="application/ld+json" set:html={JSON.stringify(schema)} /> )}
 	</head>
-	<body class="bg-white dark:text-neutral-100 dark:bg-black break-words break-all">
+	<body class="bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white font-sans antialiased">
 
         {!emptyLayout && <Header />}
 

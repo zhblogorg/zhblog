@@ -27,6 +27,6 @@ description: "关于《中文独立博客创作契约》，我们的简介、使
 
 ## 更多
 
-- [契约修订记录](/covenant/changelog)
+- [契约修订记录](/guidelines/changelog)
 
 - [网站更新记录](/changelog)
