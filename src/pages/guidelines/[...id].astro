@@ -28,11 +28,11 @@ const editUrl = `${SITE.GITHUB_URL}/edit/main/src/data${Astro.url.pathname}.md`
 >
     <div class="border-b border-neutral-200">
         <h1>{guidelines.data.title}</h1>
-        <p class="text-xs font-mono">生效日期：{guidelines.data.pubDate.toLocaleDateString('en-CA')} · 归档版本：{guidelines.id}</p>
+        <p class="text-xs font-mono capitalize">version {guidelines.id} ({guidelines.data.pubDate.toLocaleDateString('en-CA')})</p>
     </div>
     {
         guidelines.data.deprecated ? (
-            <p class="text-red-400">已弃用，此版本不再维护</p>
+            <p class="text-red-400">已废弃，仅保留归档</p>
         ) : guidelines.data.draft ? (
             <p class="text-orange-400">预览版，请前往 <a href={editUrl}>GitHub</a> 编辑或发送邮件反馈。</p>
         ) : null

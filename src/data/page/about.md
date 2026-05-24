@@ -1,4 +1,5 @@
 ---
+sulg: "about"
 title: "关于"
 description: "关于《中文独立博客创作契约》，我们的简介、使命与职责，还有联系方式。"
 ---
@@ -24,9 +25,3 @@ description: "关于《中文独立博客创作契约》，我们的简介、使
 向我们提议、举报投诉。
 
 电子邮件：<hi@zhblog.org>
-
-## 更多
-
-- [契约修订记录](/guidelines/changelog)
-
-- [网站更新记录](/changelog)

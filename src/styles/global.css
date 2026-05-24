@@ -1,14 +1,19 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+
+
+body{
+    font-family: ui-monospace, 'SFMono-Regular', Menlo, Monaco, 'Liberation Mono', 'PingFang SC', 'Helvetica Neue', sans-serif;
+}
+
 article {
-    @apply prose prose-neutral max-w-none dark:prose-invert ;;
-    /* @apply *:first:mt-0; */
-    /* @apply prose-p:leading-relaxed prose-p:font-light prose-lead:font-light; */
-    @apply font-light leading-loose;
-    @apply prose-h1:text-xl prose-h2:text-lg prose-h3:text-base prose-h4:text-base prose-h5:text-base prose-h6:text-base;
+    @apply prose prose-neutral max-w-none dark:prose-invert;
+    @apply *:first:mt-0;
+    @apply prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg;
+    @apply prose-li:marker:font-sans;
 }
 
 a:hover {
-    @apply text-blue-500 dark:text-blue-700;
+    @apply text-blue-500 dark:text-blue-400;
 }

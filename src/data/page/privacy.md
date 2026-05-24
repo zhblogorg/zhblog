@@ -1,4 +1,5 @@
 ---
+sulg: "privacy"
 title: "隐私策略（Privacy Policy）"
 ---
 

@@ -25,22 +25,40 @@ export const SITE:{
 }
 
 /**
- * 导航链接
+ * 页眉导航链接
  */
-export const NavLinks:{
-    HREF: string;
-    NAME: string;
+export const HEADER_NAV_LINKS:{
+    title: string;
+    links: {
+        text: string;
+        href: string;
+        external?: boolean;
+    }[]
 }[] = [
     {
-        HREF: "/about",
-        NAME: "关于我们"
+        title: "归档",
+        links: [
+            { text: "版本归档", href: "/guidelines", },
+            { text: "修订记录", href: "/guidelines/history" },
+            { text: "网站更新日志", href: "/changelog" }
+        ]
     },
     {
-        HREF: "/privacy",
-        NAME: "隐私策略"
+        title: "链接",
+        links: [
+            { text: "Github", href: SITE.GITHUB_URL, external: true },
+            { text: "关于", href: "/about" }
+        ]
     },
-    {
-        HREF: "/terms",
-        NAME: "服务条款"
-    },
+];
+
+/**
+ * 页脚链接
+ */
+export const FOOTER_LINKS:{
+    text: string;
+    href: string;
+}[] = [
+    { text: "隐私策略", href: "/privacy",},
+    { text: "服务条款", href: "/terms" },
 ]

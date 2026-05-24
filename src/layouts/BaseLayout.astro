@@ -31,7 +31,7 @@ const schema = isHome ? {
 	"@context": "https://schema.org",
 	"@type": "WebSite",
 	"name": SITE.TITLE,
-	"alternateName": ["中文独立博客创作契约", "中文独立博客契约", "中文博客创作契约", "IBC"],
+	"alternateName": ["中文独立博客创作契约", "中文独立博客契约", "中文博客创作契约", "中文博客契约"],
 	"url": Astro.site
 } : pageName === "guidelines" ? {
 	"@context": "https://schema.org",
@@ -76,9 +76,9 @@ const schema = isHome ? {
 		<title>{title || SITE.TITLE}</title>
 		{(isHome || pageName == "guidelines") && ( <script type="application/ld+json" set:html={JSON.stringify(schema)} /> )}
 	</head>
-	<body class="bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white font-sans antialiased">
+	<body class="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-white antialiased selection:bg-neutral-200 selection:text-neutral-800 dark:selection:bg-neutral-600 dark:selection:text-neutral-200">
 
-        {!emptyLayout && <Header />}
+        {!emptyLayout && <Header pageName={pageName} />}
 
         <slot />
 

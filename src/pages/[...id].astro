@@ -1,5 +1,4 @@
 ---
-import { SITE } from "../config";
 import MarkdownLayout from "../layouts/MarkdownLayout.astro";
 import { getCollection, render } from 'astro:content';
 
@@ -15,6 +14,11 @@ const { page } = Astro.props;
 const { Content } = await render(page);
 ---
 
-<MarkdownLayout title={page.data.title} description={page.data.description} noIndex={page.data.noIndex}>
+<MarkdownLayout
+pageName={page.id}
+title={page.data.title}
+description={page.data.description}
+noIndex={page.data.noIndex}
+>
     <Content />
 </MarkdownLayout>
