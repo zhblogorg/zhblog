@@ -8,10 +8,10 @@ const guideliness = (await getCollection("guidelines"))
 ---
 <MarkdownLayout
 pageName="archive"
-title="说明与版本归档"
-description="本页面用于说明契约的性质、适用方式，并集中展示所有历史版本。"
+title="版本归档"
+description="集中展示所有历史版本。"
 >
-	<h1>说明与版本归档</h1>
+	<h1>契约版本归档</h1>
 	<p>阅读当前版本正文：<a href={`/guidelines/${CURRENT_VERSION}`} class="cursor-pointer">{`《中文独立博客创作契约 ${CURRENT_VERSION}》`}</a></p>
 
 	<h2>版本列表</h2>
@@ -31,7 +31,7 @@ description="本页面用于说明契约的性质、适用方式，并集中展�
 							guidelines.data.deprecated ? (
 								<span class="line-through opacity-25">弃用</span>
 							) : guidelines.data.draft ? (
-								<span>草案（征求稿）</span>
+								<span>草案（草稿）</span>
 							) : guidelines.id === CURRENT_VERSION ? (
 								<span class="font-bold">当前</span>
 							) : (

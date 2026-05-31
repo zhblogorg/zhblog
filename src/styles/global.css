@@ -4,7 +4,9 @@
 
 
 body{
-    font-family: ui-monospace, 'SFMono-Regular', Menlo, Monaco, 'Liberation Mono', 'PingFang SC', 'Helvetica Neue', sans-serif;
+    /* font-family: ui-monospace, 'SFMono-Regular', Menlo, Monaco, 'Liberation Mono', 'PingFang SC', 'Helvetica Neue', sans-serif; */
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Segoe UI", "Noto Sans SC", "Noto Sans", Roboto, "Helvetica Neue", Arial, sans-serif;
+
 }
 
 article {
@@ -12,8 +14,10 @@ article {
     @apply *:first:mt-0;
     @apply prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg;
     @apply prose-li:marker:font-sans;
+    @apply prose-a:no-underline prose-a:text-blue-600 dark:prose-a:text-blue-400;
+    @apply prose-blockquote:not-italic ;
 }
 
 a:hover {
-    @apply text-blue-500 dark:text-blue-400;
+    @apply text-blue-500 dark:text-blue-300;
 }

@@ -30,20 +30,23 @@ const isHome = pathname === "/" || pathname === "/index.html";
 const schema = isHome ? {
 	"@context": "https://schema.org",
 	"@type": "WebSite",
+	"@id": Astro.url,
 	"name": SITE.TITLE,
 	"alternateName": ["中文独立博客创作契约", "中文独立博客契约", "中文博客创作契约", "中文博客契约"],
 	"url": Astro.site
 } : pageName === "guidelines" ? {
 	"@context": "https://schema.org",
-	"@type": "CreativeWork",
+	"@type": "Article",
+	"headline": title,
 	"name": title,
 	"url": Astro.url,
+	"mainEntityOfPage": Astro.url,
 	"inLanguage": "zh-CN",
 	"description": description,
 	"datePublished": pubDate,
 	...(modDate && { "dateModified": modDate }),
 	"version": version,
-	"creator": {
+	"publisher": {
 		"@type": "Organization",
 		"name": SITE.TITLE,
 		"url": Astro.site

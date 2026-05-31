@@ -1,5 +1,5 @@
 ---
-sulg: "terms"
+slug: "terms"
 title: "服务条款（Terms of Service）"
 ---
 

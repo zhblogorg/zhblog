@@ -28,7 +28,10 @@ const editUrl = `${SITE.GITHUB_URL}/edit/main/src/data${Astro.url.pathname}.md`
 >
     <div class="border-b border-neutral-200">
         <h1>{guidelines.data.title}</h1>
-        <p class="text-xs font-mono capitalize">version {guidelines.id} ({guidelines.data.pubDate.toLocaleDateString('en-CA')})</p>
+        <p class="flex items-baseline justify-between text-xs font-mono font-semibold capitalize">
+            <span>[{guidelines.id}] · <time datetime={guidelines.data.pubDate.toISOString()}>{guidelines.data.pubDate.toLocaleDateString('en-CA')}</time></span>
+            <a href={Astro.url+'.md'} target="_blank">Markdown</a>
+        </p>
     </div>
     {
         guidelines.data.deprecated ? (
@@ -37,8 +40,6 @@ const editUrl = `${SITE.GITHUB_URL}/edit/main/src/data${Astro.url.pathname}.md`
             <p class="text-orange-400">预览版，请前往 <a href={editUrl}>GitHub</a> 编辑或发送邮件反馈。</p>
         ) : null
     }
-    
-    <!-- <hr> -->
     
     <Content />
 </MarkdownLayout>

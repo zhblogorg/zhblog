@@ -3,9 +3,6 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from "@tailwindcss/vite";
 
 import sitemap from "@astrojs/sitemap";
-import { CURRENT_VERSION } from './src/config';
-
-const versionURL = `/covenant/${CURRENT_VERSION}`
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,23 +15,14 @@ export default defineConfig({
         port: 4321,
     },
 
-    // devToolbar: {
-    //     enabled: false
-    // },
+    devToolbar: {
+        enabled: false
+    },
 
     site: "https://zhblog.org",
 
     integrations: [
-            sitemap({
-                // filter: (page) => !page.includes('/draft'),
-            }),
+            sitemap({}),
     ],
-
-    // redirects: {
-    //     "/covenant/current": {
-    //         status: 302,
-    //         destination: versionURL
-    //     }
-    // }
 
 });
