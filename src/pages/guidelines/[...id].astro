@@ -26,13 +26,13 @@ const editUrl = `${SITE.GITHUB_URL}/edit/main/src/data${Astro.url.pathname}.md`
     modDate = {guidelines.data.modDate}
     version = {guidelines.id}
 >
-    <div class="border-b border-neutral-200">
+    <header class="border-b border-neutral-200">
         <h1>{guidelines.data.title}</h1>
         <p class="flex items-baseline justify-between text-xs font-mono font-semibold capitalize">
             <span>[{guidelines.id}] · <time datetime={guidelines.data.pubDate.toISOString()}>{guidelines.data.pubDate.toLocaleDateString('en-CA')}</time></span>
-            <a href={Astro.url+'.md'} target="_blank">Markdown</a>
+            <a href={`/guidelines/${guidelines.id}.md`} target="_blank">Markdown</a>
         </p>
-    </div>
+    </header>
     {
         guidelines.data.deprecated ? (
             <p class="text-red-400">已废弃，仅保留归档</p>

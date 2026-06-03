@@ -2,10 +2,16 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 <BaseLayout title="404 页面未找到" emptyLayout>
-    <main class="flex justify-center items-center h-screen text-center">
-        <div>
-            <h1 class="text-2xl font-medium mb-4">404 页面未找到</h1>
-            <a href="/" class="underline">前往首页</a>
-        </div>
+    
+    <main class="mx-auto max-w-3xl p-6 space-y-8">
+        <div class="space-y-2.5">
+            <div>
+                <strong>404.</strong> 这个页面不存在</div>
+                <div>您访问的地址 <strong id="path">/46516</strong> 在本服务器上未找到</div>
+                <div class="space-x-4 *:underline *:cursor-pointer"><a onclick="history.back()">退回</a><a href="/">返回首页</a></div>
+            </div>
     </main>
 </BaseLayout>
+<script>
+    document.getElementById("path")!.textContent=location.pathname;
+</script>

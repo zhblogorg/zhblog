@@ -79,7 +79,7 @@ const schema = isHome ? {
 		<title>{title || SITE.TITLE}</title>
 		{(isHome || pageName == "guidelines") && ( <script type="application/ld+json" set:html={JSON.stringify(schema)} /> )}
 	</head>
-	<body class="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-white antialiased selection:bg-neutral-200 selection:text-neutral-800 dark:selection:bg-neutral-600 dark:selection:text-neutral-200">
+	<body class="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-white antialiased selection:bg-neutral-200 selection:text-neutral-800 dark:selection:bg-neutral-600 dark:selection:text-neutral-200 break-all wrap-break-word">
 
         {!emptyLayout && <Header pageName={pageName} />}
 

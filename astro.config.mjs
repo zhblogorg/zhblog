@@ -22,7 +22,7 @@ export default defineConfig({
     site: "https://zhblog.org",
 
     integrations: [
-            sitemap({}),
+        sitemap({}),
     ],
 
 });
