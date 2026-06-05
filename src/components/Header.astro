@@ -9,8 +9,8 @@ const { pageName } = Astro.props;
         <a href="/" aria-label="返回首页" class=""><SITE.LOGO class={'size-5'} /></a>
         
         <div class="flex items-baseline gap-1.5">
-            {pageName && <div class="text-[10px] text-neutral-400 font-mono tracking-widest capitalize">{pageName} //</div>}
-            <button id="nav-toggle" class="text-xs tracking-widest flex items-center gap-x-1 cursor-pointer">
+            {pageName && <div class="text-[10px] font-mono tracking-widest capitalize">{pageName} //</div>}
+            <button id="nav-toggle" class="text-xs tracking-widest flex items-center gap-x-1 cursor-pointer" aria-label="打开或关闭导航菜单">
                 <span>索引</span>
                 <svg id="nav-icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-logs-icon lucide-logs size-3"><path d="M3 5h1"/><path d="M3 12h1"/><path d="M3 19h1"/><path d="M8 5h1"/><path d="M8 12h1"/><path d="M8 19h1"/><path d="M13 5h8"/><path d="M13 12h8"/><path d="M13 19h8"/></svg>
                 <svg id="nav-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x size-3 hidden"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>

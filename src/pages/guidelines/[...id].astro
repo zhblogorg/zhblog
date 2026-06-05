@@ -30,7 +30,7 @@ const editUrl = `${SITE.GITHUB_URL}/edit/main/src/data${Astro.url.pathname}.md`
         <h1>{guidelines.data.title}</h1>
         <p class="flex items-baseline justify-between text-xs font-mono font-semibold capitalize">
             <span>[{guidelines.id}] · <time datetime={guidelines.data.pubDate.toISOString()}>{guidelines.data.pubDate.toLocaleDateString('en-CA')}</time></span>
-            <a href={`/guidelines/${guidelines.id}.md`} target="_blank">Markdown</a>
+            <a href={`/guidelines/${guidelines.id}.md`} target="_blank" rel="noopener noreferrer" aria-label="查看 Markdown 源文件">Markdown</a>
         </p>
     </header>
     {
