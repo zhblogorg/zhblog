@@ -1,28 +1,24 @@
-// @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
-
 import sitemap from "@astrojs/sitemap";
+import rehypeExternalLinks from "rehype-external-links";
 
-// https://astro.build/config
 export default defineConfig({
-    vite: {
-        plugins: [tailwindcss()],
-    },
-
-    server: {
-        host: true,
-        port: 4321,
-    },
-
-    devToolbar: {
-        enabled: false
-    },
-
-    site: "https://zhblog.org",
-
-    integrations: [
-        sitemap({}),
-    ],
-
+	site: "https://zhblog.org",
+	integrations: [sitemap()],
+	vite: {
+		plugins: [tailwindcss()],
+	},
+	server: {
+		host: true,
+		port: 4321,
+	},
+	devToolbar: {
+		enabled: false,
+	},
+	markdown: {
+		rehypePlugins: [
+			[rehypeExternalLinks, { target: "_blank", rel: ["noopener", "noreferrer"] }],
+		],
+	},
 });

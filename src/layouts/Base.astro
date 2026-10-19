@@ -1,0 +1,73 @@
+---
+import "../styles/global.css";
+import { site } from "../../site.config";
+import Header from "../components/header.astro";
+
+const { title, description, date, noindex } = Astro.props;
+
+const fullTitle = title ? `${title} · ${site.title}` : site.title;
+const pageDescription = description ?? site.description;
+const pageUrl = Astro.url.href;
+const siteUrl = Astro.site?.href ?? Astro.url.origin;
+const ogImage = new URL("/og.webp", siteUrl).href;
+
+const schema = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "WebSite",
+			name: site.title,
+			url: siteUrl,
+			description: site.description,
+			inLanguage: "zh-CN",
+		},
+		{
+			"@type": "WebPage",
+			name: fullTitle,
+			description: pageDescription,
+			url: pageUrl,
+			inLanguage: "zh-CN",
+			...(date && { dateModified: date.toISOString() }),
+			isPartOf: { "@type": "WebSite", name: site.title, url: siteUrl },
+		},
+	],
+};
+---
+
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{fullTitle}</title>
+
+		<meta name="description" content={pageDescription} />
+		<meta name="keywords" content={site.keywords.join(",")} />
+		<meta name="generator" content={Astro.generator} />
+		{noindex && <meta name="robots" content="noindex" />}
+
+		<link rel="canonical" href={pageUrl} />
+		<link rel="icon" type="image/svg+xml" href={site.logo} />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+
+		<meta property="og:site_name" content={site.title} />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={fullTitle} />
+		<meta property="og:description" content={pageDescription} />
+		<meta property="og:url" content={pageUrl} />
+		<meta property="og:locale" content="zh_CN" />
+		<meta property="og:image" content={ogImage} />
+		<meta name="twitter:card" content="summary_large_image" />
+
+		<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="#171717" media="(prefers-color-scheme: dark)" />
+
+		<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+	</head>
+	<body class="bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-300 antialiased selection:bg-neutral-200 selection:text-neutral-800 dark:selection:bg-neutral-600 dark:selection:text-neutral-200 break-all">
+		<a href="#main" class="sr-only">跳到主要内容</a>
+		<Header />
+		<main id="main" class="max-w-2xl mx-auto p-8 space-y-8">
+			<slot />
+		</main>
+	</body>
+</html>

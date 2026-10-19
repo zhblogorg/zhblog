@@ -1,0 +1,14 @@
+---
+import Base from "./Base.astro";
+
+const { title, description, date, noindex } = Astro.props;
+---
+
+<Base title={title} description={description} date={date} noindex={noindex}>
+	{date && (
+		<time datetime={date.toISOString()} class="sr-only">页面更新时间：{date.toLocaleDateString()}</time>
+	)}
+	<article>
+		<slot />
+	</article>
+</Base>

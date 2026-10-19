@@ -1,21 +1,60 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+:root {
+	color-scheme: light dark;
+}
 
-
-body{
-    font-family: "Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 article {
-    @apply prose prose-neutral max-w-none dark:prose-invert;
-    @apply *:first:mt-0;
-    @apply prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg;
-    @apply prose-li:marker:font-sans;
-    @apply prose-a:no-underline prose-a:text-blue-600 dark:prose-a:text-blue-400;
-    @apply prose-blockquote:not-italic ;
+	@apply prose prose-neutral max-w-none dark:prose-invert;
+	@apply *:first:mt-0 *:last:mb-0;
+
+	@apply prose-h1:text-xl prose-h2:text-lg prose-h3:text-base prose-h4:text-sm;
+	@apply prose-h1:font-semibold prose-h2:font-semibold prose-h3:font-semibold prose-h4:font-semibold;
+	@apply prose-strong:font-semibold;
+
+	@apply prose-p:text-neutral-600 dark:prose-p:text-neutral-300;
+	@apply prose-li:text-neutral-600 dark:prose-li:text-neutral-300;
+
+	@apply prose-p:leading-loose prose-li:leading-loose;
+
+	@apply prose-a:underline-offset-4;
 }
 
-a:hover {
-    @apply text-blue-500 dark:text-blue-300;
+article :where(h1, h2, h3, h4)[id] {
+	scroll-margin-top: 2rem;
+}
+
+article code::before,
+article code::after {
+	content: none;
+}
+
+article code {
+	@apply bg-neutral-100 dark:bg-neutral-800;
+	@apply text-neutral-500 dark:text-neutral-400;
+	@apply px-2 py-1 rounded-md;
+	@apply font-mono text-sm;
+}
+
+article hr {
+	@apply my-12 border-dashed border-neutral-200 dark:border-neutral-700;
+}
+
+article blockquote {
+	@apply not-italic font-normal text-sm;
+	quotes: none;
+}
+
+article blockquote p:first-of-type::before,
+article blockquote p:last-of-type::after {
+	content: none;
+}
+
+article blockquote :where(p, li) {
+	@apply text-neutral-400 dark:text-neutral-500;
 }

@@ -1,24 +1,19 @@
 ---
-import MarkdownLayout from "../layouts/MarkdownLayout.astro";
-import { getCollection, render } from 'astro:content';
+import { getCollection, render } from "astro:content";
+import Markdown from "../layouts/Markdown.astro";
 
 export async function getStaticPaths() {
-    const pages = await getCollection('page');
-    return pages.map(page => ({
-        params: { id: page.id },
-        props: { page },
-    }));
+	const pages = (await getCollection("pages")).filter((page) => page.id !== "index");
+	return pages.map((page) => ({
+		params: { id: page.id },
+		props: { page },
+	}));
 }
 
 const { page } = Astro.props;
 const { Content } = await render(page);
 ---
 
-<MarkdownLayout
-pageName={page.id}
-title={page.data.title}
-description={page.data.description}
-noIndex={page.data.noIndex}
->
-    <Content />
-</MarkdownLayout>
+<Markdown title={page.data.title} description={page.data.description} date={page.data.date}>
+	<Content />
+</Markdown>

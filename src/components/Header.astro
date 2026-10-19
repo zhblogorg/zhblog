@@ -1,59 +1,11 @@
 ---
-import { HEADER_NAV_LINKS, SITE } from "../config";
-
-const { pageName } = Astro.props;
+import { nav } from "../../site.config";
 ---
 
-<header id="header" class="sticky top-0 z-50 bg-neutral-50 dark:bg-neutral-900 px-6 py-2.5 transition-all duration-200">
-    <div class="max-w-4xl mx-auto flex justify-between items-center">
-        <a href="/" aria-label="返回首页" class=""><SITE.LOGO class={'size-5'} /></a>
-        
-        <div class="flex items-baseline gap-1.5">
-            {pageName && <div class="text-[10px] font-mono tracking-widest capitalize">{pageName} //</div>}
-            <button id="nav-toggle" class="text-xs tracking-widest flex items-center gap-x-1 cursor-pointer" aria-label="打开或关闭导航菜单">
-                <span>索引</span>
-                <svg id="nav-icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-logs-icon lucide-logs size-3"><path d="M3 5h1"/><path d="M3 12h1"/><path d="M3 19h1"/><path d="M8 5h1"/><path d="M8 12h1"/><path d="M8 19h1"/><path d="M13 5h8"/><path d="M13 12h8"/><path d="M13 19h8"/></svg>
-                <svg id="nav-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x size-3 hidden"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-            </button>
-        </div>
-    </div>
-
-    <nav id="nav-menu" class="max-w-4xl mx-auto grid grid-rows-[0fr] opacity-0 invisible transition-all duration-300 ease-in-out">
-        <div class="overflow-hidden">
-            <div class="pt-12 pb-4 space-y-8">
-                {HEADER_NAV_LINKS.map(links => (
-                    <div>
-                        <div class="text-xs text-neutral-400 dark:text-neutral-500 font-mono tracking-widest uppercase mb-4">{links.title}</div>
-                        <ul class="text-sm space-y-2.5 *:text-neutral-600 dark:*:text-neutral-300">
-                            {links.links.map(link => (
-                                link.external ? (<li><a href={link.href} target="_blank" rel="noopener noreferrer" class="flex items-baseline gap-1"><span>{link.text}</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link-icon lucide-external-link size-2.5"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></li>)
-                                    : (<li><a href={link.href}>{link.text}</a></li>)
-                            ))}
-                        </ul>
-                    </div>
-                ))}
-            </div>
-        </div>
-    </nav>
+<header class="border-b border-dashed border-neutral-200 dark:border-neutral-700">
+	<nav aria-label="站点导航" class="max-w-2xl mx-auto px-8 py-4 flex flex-wrap items-center gap-2.5">
+		{nav.map((item) => (
+			<a href={item.path}>{item.label}</a>
+		))}
+	</nav>
 </header>
-
-<script>
-    const toggleBtn = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    const navIconMenu = document.getElementById('nav-icon-menu');
-    const navIconClose = document.getElementById('nav-icon-close');
-
-    toggleBtn?.addEventListener('click', () => {
-        if (navMenu && navIconMenu && navIconClose) {
-            navMenu.classList.toggle('grid-rows-[0fr]');
-            navMenu.classList.toggle('grid-rows-[1fr]');
-            navMenu.classList.toggle('opacity-0');
-            navMenu.classList.toggle('opacity-100');
-            navMenu.classList.toggle('invisible');
-            navMenu.classList.toggle('visible');
-            
-            navIconMenu.classList.toggle('hidden');
-            navIconClose.classList.toggle('hidden');
-        }
-    });
-</script>
