@@ -3,7 +3,7 @@ import { nav } from "../../site.config";
 ---
 
 <header class="border-b border-dashed border-neutral-200 dark:border-neutral-700">
-	<nav aria-label="站点导航" class="max-w-2xl mx-auto px-8 py-4 flex flex-wrap items-center gap-2.5">
+	<nav aria-label="站点导航" class="max-w-2xl mx-auto px-6 py-4 sm:px-8 flex flex-wrap items-center gap-2.5">
 		{nav.map((item) => (
 			<a href={item.path}>{item.label}</a>
 		))}
