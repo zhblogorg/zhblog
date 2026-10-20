@@ -6,9 +6,7 @@
 }
 
 body {
-	font-family: 'Noto Serif SC Variable', serif;
-	font-weight: 400;
-	font-style: normal;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 article {
@@ -18,16 +16,16 @@ article {
 
 	@apply prose-headings:text-neutral-900 dark:prose-headings:text-neutral-200;
 
-	@apply prose-h1:text-xl prose-h1:font-bold;
-	@apply prose-h2:text-lg prose-h2:font-bold;
+	@apply prose-h1:text-xl prose-h1:font-semibold;
+	@apply prose-h2:text-lg prose-h2:font-semibold;
 	@apply prose-h3:text-base prose-h3:font-semibold;
 	@apply prose-h4:text-sm prose-h4:font-semibold;
 
-	/* @apply prose-p:text-neutral-600 prose-li:text-neutral-600 dark:prose-p:text-neutral-400 dark:prose-li:text-neutral-400; */
+	@apply prose-p:text-neutral-600 prose-li:text-neutral-600 dark:prose-p:text-neutral-400 dark:prose-li:text-neutral-400;
 
 	@apply prose-strong:font-semibold prose-strong:text-neutral-900 dark:prose-strong:text-neutral-200;
 
-	@apply prose-code:rounded-md prose-code:bg-neutral-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:font-normal prose-code:text-neutral-600 dark:prose-code:bg-neutral-800 dark:prose-code:text-neutral-400;
+	@apply prose-code:rounded-md prose-code:bg-neutral-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:font-normal prose-code:text-neutral-500 dark:prose-code:bg-neutral-800 dark:prose-code:text-neutral-400;
 
 	@apply prose-kbd:font-mono prose-kbd:py-0.5 prose-kbd:px-2;
 
@@ -37,7 +35,7 @@ article {
 }
 
 article blockquote p {
-	@apply text-sm font-normal not-italic leading-relaxed text-neutral-600 dark:text-neutral-400;
+	@apply text-sm font-normal not-italic leading-relaxed text-neutral-500 dark:text-neutral-400;
 }
 
 article :where(h1, h2, h3, h4)[id] {
