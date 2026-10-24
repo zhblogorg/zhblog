@@ -12,18 +12,18 @@ body {
 article {
 	@apply prose prose-neutral dark:prose-invert max-w-none text-base leading-loose;
 
-	@apply prose-a:underline-offset-4;
+	@apply prose-a:underline-offset-4 prose-a:font-normal;
 
 	@apply prose-headings:text-neutral-900 dark:prose-headings:text-neutral-200;
 
-	@apply prose-h1:text-xl prose-h1:font-semibold;
-	@apply prose-h2:text-lg prose-h2:font-semibold;
-	@apply prose-h3:text-base prose-h3:font-semibold;
-	@apply prose-h4:text-sm prose-h4:font-semibold;
+	@apply prose-h1:text-2xl prose-h1:font-normal;
+	@apply prose-h2:text-xl prose-h2:font-normal;
+	@apply prose-h3:text-lg prose-h3:font-normal;
+	@apply prose-h4:text-base prose-h4:font-normal;
 
 	@apply prose-p:text-neutral-600 prose-li:text-neutral-600 dark:prose-p:text-neutral-400 dark:prose-li:text-neutral-400;
 
-	@apply prose-strong:font-semibold prose-strong:text-neutral-900 dark:prose-strong:text-neutral-200;
+	@apply prose-strong:font-medium prose-strong:text-neutral-900 dark:prose-strong:text-neutral-200;
 
 	@apply prose-code:rounded-md prose-code:bg-neutral-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:font-normal prose-code:text-neutral-500 dark:prose-code:bg-neutral-800 dark:prose-code:text-neutral-400;
 
